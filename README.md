@@ -25,10 +25,6 @@ The app follows **Clean Architecture** and **MVVM (Model-View-ViewModel)** princ
 3. **Presentation Layer**: Consists of **ViewModels** and **SwiftUI Views**. The ViewModel handles the business logic and binds data to the views.
     - Example: `EventListViewModel.swift` manages the event data, loading states, and error handling for the UI.
 
-### Dependency Injection
-The app uses **Resolver** for dependency injection, which helps in keeping the code loosely coupled and facilitates better testability by enabling easy mocking of components.
-
-
 ## Usage
 
 - The app fetches GitHub events and displays them in a list.
