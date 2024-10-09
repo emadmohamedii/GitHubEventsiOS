@@ -13,7 +13,7 @@ class MockFetchEventListUseCase: FetchEventListUseCaseProtocol {
     var stubbedEvents: [GitHubEvent] = []
     var stubbedError: Error?
     
-    func excute(filter: EventType) async throws -> [GitHubEvent] {
+    func execute(filter: EventType) async throws -> [GitHubEvent] {
         if let error = stubbedError {
             throw error
         }

@@ -44,7 +44,7 @@ class EventListViewModelTests: XCTestCase {
         
         // Assert
         XCTAssertEqual(viewModel.events, expectedEvents)
-        XCTAssertFalse(viewModel.isEmpty)
+        XCTAssertEqual(self.viewModel.isEmpty, false)
         XCTAssertEqual(viewModel.errorMessage, "")
         XCTAssertFalse(viewModel.isLoading)
     }
@@ -58,7 +58,7 @@ class EventListViewModelTests: XCTestCase {
         
         // Assert
         XCTAssertTrue(viewModel.events.isEmpty)
-        XCTAssertTrue(viewModel.isEmpty)
+        XCTAssertNil(viewModel.isEmpty)
         XCTAssertEqual(viewModel.errorMessage, "Failed to load events: The operation couldn’t be completed. ( error -1.)")
     }
     
@@ -81,7 +81,7 @@ class EventListViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Set Event Type and Load Events")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertEqual(self.viewModel.events, expectedEvents)
-            XCTAssertFalse(self.viewModel.isEmpty)
+            XCTAssertEqual(self.viewModel.isEmpty, false)
             expectation.fulfill()
         }
 
@@ -107,7 +107,7 @@ class EventListViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Retry Load Events")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertEqual(self.viewModel.events, expectedEvents)
-            XCTAssertFalse(self.viewModel.isEmpty)
+            XCTAssertEqual(self.viewModel.isEmpty, false)
             expectation.fulfill()
         }
         await fulfillment(of: [expectation], timeout: 2, enforceOrder: false)

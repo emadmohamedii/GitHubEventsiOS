@@ -1,0 +1,20 @@
+# update_fastlane
+# fastlane_version '2.xxx'
+
+default_platform(:ios)
+
+platform :ios do
+  desc "build project and execute unit tests"
+  lane :unit_test do |options|
+  scan(
+    scheme: "eCabsTask",
+    device: "iPhone 16",
+    output_directory: "./fastlane/test_output",
+    clean: true
+  )
+  end
+
+end
+
+#    clean: true, # Clean the build before testing
+#    output_directory: "./fastlane/test_output" # Directory for output
