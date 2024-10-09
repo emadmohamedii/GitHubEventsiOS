@@ -44,8 +44,10 @@ jobs:
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Code Review with ChatGPT
         uses: anc95/ChatGPT-CodeReview@v1.0.13
+        env:
+          GITHUB_TOKEN: ${{ secrets.OPENAI_API_KEY }}
         with:
           repo: ${{ github.repository }}
-          token: ${{ secrets.emadhabibsecertkey }}
-          pull_request: ${{ github.event_name == 'pull_request' && github.event.pull_request.number || '' }}
+          pull_request: ${{ github.event_name == 'pull_request' }}
+          body: 'Thank you for your contribution! We will review it soon.'
           
