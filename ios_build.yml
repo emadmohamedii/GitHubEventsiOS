@@ -1,0 +1,35 @@
+name: iOS Build and Test
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to your main branch name
+  pull_request:
+    branches:
+      - main  # Adjust this to your main branch name
+
+jobs:
+  build:
+    runs-on: macos-latest
+  
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'  # Specify your Ruby version
+
+    - name: Install Fastlane
+      run: gem install fastlane
+
+    - name: Install Dependencies
+      run: bundle install  # If you're using Bundler, otherwise skip this
+
+    - name: Run Tests
+      run: fastlane ios unit_test  # Replace with your lane name
+
+    # Optional: Add build step if needed
+    # - name: Build App
+    #   run: fastlane ios build  # Replace with your build lane name
