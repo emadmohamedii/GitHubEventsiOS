@@ -12,9 +12,6 @@ platform :ios do
     output_directory: "./fastlane/test_output",
     clean: true
   )
+  
   end
-
 end
-
-#    clean: true, # Clean the build before testing
-#    output_directory: "./fastlane/test_output" # Directory for output

@@ -29,7 +29,3 @@ jobs:
 
     - name: Run Tests
       run: fastlane ios unit_test  # Replace with your lane name
-
-    # Optional: Add build step if needed
-    # - name: Build App
-    #   run: fastlane ios build  # Replace with your build lane name
